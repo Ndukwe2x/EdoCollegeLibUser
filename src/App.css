@@ -382,7 +382,7 @@ a:hover{
  }
  .add-book-frm .btn-sctn-addBk{
    width:90%;
-  margin:20px auto 10px;
+   margin:20px auto 10px;
 }
 .add-book-pg  .topNav{
    display: flex;
@@ -399,6 +399,7 @@ a:hover{
   background-color:#305a75 ;
   color:#fff;
 }
+
 .bookupload-success{
   width:90%;
   min-width:280px; 
@@ -482,8 +483,80 @@ a:hover{
 .prgrss-thumbs img{
   width:100%;
 }
- /*** Error Fall back page Page */
+/*** Book List */
+ .listpg-caption{
+    font:bold 1.6em "Arial Narrow";
+ }
+ .topSearch{
+  width:96%;
+  margin:30px auto 10px;  
+}
 
+.matchcount{
+  width:80%;
+  max-width: 120px;
+  font:bold 0.93em Verdana,cambria, "Times New Roman";
+  margin:0 auto 5px;
+  color:#928f8e;
+}
+
+.searchNav{
+  display:flex;
+  justify-content: start;
+  width:96%;
+  margin: 0 auto;
+}
+.searchNav button{
+  width:80px !important;
+  color:#494a50 !important;
+  background-color: #e2e2e2 !important;
+  height: 40px !important;
+  min-width: 71px;
+}
+.control-search{
+   max-width: 550px;
+   margin-left:10%;
+}
+.searchBox{
+  height:40px !important;
+}
+button.search-btn{
+  height: 40px !important;
+  background-color: #7574aa !important;
+  color:#ffffff !important;
+  width:80px !important;
+  min-width: 60px;
+ 
+}
+/*** Student List Page */
+
+.tab-studentlist{
+  min-width:310px ;
+  margin:10px auto 5px;
+}
+.pgCaption{
+  font:bold 1.5em Arial, 'Arial Narrow';
+  margin:12px auto 5px;
+  width:90%;
+  max-width: 210px;
+}
+.bckbtn{
+  margin-top:30px;  
+}
+.process-indication{
+  width:90%;
+  max-width:320px;
+  min-width: 300px;
+  margin:8px 0 5px 20px;
+}
+.btn-size{
+  min-width: 85px !important;
+}
+.indicator-text{
+  color:#15804a;
+}
+ /*** Error Fall back page Page */
+ 
 
 /***  404 not Found Page ***/
  .colorTests{
@@ -515,7 +588,21 @@ a:hover{
         }
         .addbookHdr .iconSize{
           font-size:20px;   
-        }
+        }       
+       
+ }
+ @media screen and (min-width:650px){
+  .searchNav button{
+    width:100px !important;
+    height: 37px !important;
+    min-width: 90px;
+ }
+ button.search-btn{
+  height: 40px !important;
+  width:80px !important;
+  min-width: 60px
+
+}
  }
 
  @media screen and (min-width:750px) {
@@ -528,6 +615,15 @@ a:hover{
     .addbookHdr .iconSize{
       font-size:30px;   
     }
+  .searchBox{
+     height:50px !important;
+   }
+   button.search-btn{
+      height: 50px !important;
+      width:80px !important;
+      min-width: 60px
+    
+   }
  }
 
  @media screen and (min-width:992px) {

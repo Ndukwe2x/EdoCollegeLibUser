@@ -30,7 +30,7 @@ export default function Footer(){
         <h2 title='Edo college old boys association' onClick={showAboutEcoba}>Powered by ECOBA</h2>
        </section>
        <section className='lnk-sch-web section-1-1' >
-            <a href='https://edocollegebenin.com/w_home' target='_blank'>Edo college Benin</a>
+            <a href='https://edocollegebenin.com' target='_blank'>Edo college Benin</a>
        </section>
        <section className='section-2'>
          <p>&copy; {dateTime.getFullYear()} All Rights Reserved.</p>

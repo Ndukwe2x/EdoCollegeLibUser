@@ -84,13 +84,13 @@ const SideBar=({})=>{
         <ul id="studentmenu" className="nav-content collapse"
         data-bs-parent="#sidebar-nav">
           <li>
-            <Link href="#">
+            <Link to="students">
             <FontAwesomeIcon icon={faPersonCircleCheck} /> 
               <span className='ms-1'>Approve student</span>
             </Link>
           </li>
           <li>
-            <Link href="#">
+            <Link to="students">
             <FontAwesomeIcon icon={faListOl} /> 
               <span className='ms-1'>student list</span>
             </Link>

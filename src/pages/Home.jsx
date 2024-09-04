@@ -1,5 +1,5 @@
 import TopBar from "../components/TopBar/TopBar";
-import Login from "../components/Login/Login";
+import AdminLogin from "../components/AdminLogin/AdminLogin";
 import Footer from "../components/Footer/Footer";
 
 
@@ -10,7 +10,7 @@ export default function Home(){
       <div className="homepage page-enclose" >
          <TopBar showSideMenu={false} showAvatar={false}/>  
          <section className="section-login">       
-           <Login  />
+           <AdminLogin  />
          </section>
          <Footer/>      
        </div> 

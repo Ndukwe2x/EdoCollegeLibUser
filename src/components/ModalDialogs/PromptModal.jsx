@@ -38,9 +38,9 @@ const PromptModal=({show,bodyText,submitHandler,mode, onHide,headerText})=>{
       </Modal.Header>
       <Modal.Body>
         
-        <div>          
+        <p>          
           <DisplayedPrompt text={bodyText} />
-        </div>
+        </p>
       </Modal.Body>
       <Modal.Footer>
          <Button onClick={onHide} variant='primary'>Ok</Button>

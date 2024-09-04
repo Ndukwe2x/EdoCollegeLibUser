@@ -27,10 +27,10 @@ export const authenticateAdmin= async (loginPath)=>{
    
      
 }
-export const loginUser= async(userName,tokenPass)=>{
+export const loginAdmin= async(userEmail,adminPass)=>{
 
     try {
-      return await api.post("login/student",{studentID:userName,token:tokenPass})
+      return await api.post("login/admin",{email:userEmail,password:adminPass})
     } catch (error) {
         throw error;
     }
