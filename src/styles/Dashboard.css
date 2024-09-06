@@ -1,0 +1,149 @@
+.dashboard-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 200px;
+  }
+  
+  .sidebar h3 {
+    font-size: 1.2em;
+  }
+  p h4{ 
+    color: "black"
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li.active {
+    font-weight: bold;
+    color: #3c3c50; /* Match the theme color */
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    border: none;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+
+  
+
+  .search-bar button {
+    padding: 10px 20px;
+    background-color: #3c3c50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .add-book {
+    padding: 10px 20px;
+    background-color: #3c3c50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 600px;
+
+  }
+  
+  .resource-item {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .resource-item img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .resource-item div {
+    flex-grow: 1;
+  }
+  
+  .resource-item h4 {
+    margin: 0 0 10px;
+  }
+  
+  .resource-item p {
+    margin: 5px 0;
+  }
+  
+  .resource-item button {
+    padding: 10px 20px;
+    background-color: #3c3c50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .extra-content {
+    width: 200px;
+  }
+  
+  .study-plan,
+  .previously-viewed {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .alphabet-index {
+    justify-content: center;
+  }
+  .alphabet-index ul {
+    list-style: none;
+    padding: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .alphabet-index ul li {
+    padding: 5px;
+    background-color: #3c3c50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    
+  }
+  

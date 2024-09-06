@@ -1,0 +1,127 @@
+
+
+   
+.formLoginAdmin{
+  border-radius: 10px;
+  width:95%;
+  max-width:420px;
+  padding:11px 29px;
+  box-shadow:rgba(84, 124, 235, 0.34) 0 0 18px 2px;
+  
+ }
+ h3{
+      /* width:85%; */
+      /* max-width:101px; */
+     font:bold 0.83em ;
+     color:#ffffff;
+     margin:4px auto 2px;
+ }
+ 
+ input[type='text']{
+     margin-bottom:5px;
+ }
+ label{
+     font:bold 0.90em  cambria, Calibri, Times New Roman ;
+     color:#434346e5
+ }
+ 
+ .submitBtn{
+     width:99%;
+     height:43px;
+     margin:60px auto 10px;
+    
+ }
+ .token-input{
+  height: 55px !important;
+  font-size: 18px !important
+}
+ .pswrd-reset{
+   color:#2455dd;
+   cursor: pointer;
+ }
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-image: url('	https://library-virid-three.vercel.app/_next/static/media/student-reading-in-library.3896a5d6.jpeg');
+  background-repeat: contain;
+  background-position: center top; */
+  background-color: #ffffff;
+}
+
+.login-card {
+  background-color: #17172ca1; /* Background color of the card */
+  border-radius: 10px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-card img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.login-card h4 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Text color */
+}
+
+.login-card p {
+  font-size: 14px;
+  color: #fff; /* Subtitle color */
+  margin-bottom: 30px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.login-card .login-btn {
+  background-color: #fff;
+  color: #3c3c50;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.login-card .login-btn:hover {
+  background-color: #FF9900;
+  color: #fff;
+}
+
+.login-card .signup-link {
+  font-size: 14px;
+  color: #fff; /* Link color */
+}
+
+.login-card .signup-link a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.login-card .signup-link a:hover {
+  color: #FF9900;
+}
