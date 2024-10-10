@@ -34,6 +34,7 @@ export function AuthProvider({ children }) {
   const signUp = async (userData) => {
     setLoading(true);
     try {
+      console.log("Attempting sign up..", userData);
       const response = await createUser(userData);
       console.log("Response: ", response);
 

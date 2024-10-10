@@ -103,7 +103,7 @@ const Login = () => {
             {formik.touched && formik.errors.username ? (<p className='errTxt'>{formik.errors.username}</p>) : null}
             
             {/* <label htmlFor='token'>Token</label> */}
-            <input className='form-control token-input' id='token' name='token' maxLength={12} 
+            <input className='form-control' id='token' name='token' maxLength={12} 
             disabled={submitStatus=="submitting" }
             type='password' placeholder='Token' {...formik.getFieldProps('token')} />
             {formik.touched && formik.errors.token ? (<p className='errTxt'>{formik.errors.token}</p>) : null}

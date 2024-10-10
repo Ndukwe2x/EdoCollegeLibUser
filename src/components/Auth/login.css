@@ -31,10 +31,7 @@
      margin:60px auto 10px;
     
  }
- .token-input{
-  height: 55px !important;
-  font-size: 18px !important
-}
+
  .pswrd-reset{
    color:#2455dd;
    cursor: pointer;

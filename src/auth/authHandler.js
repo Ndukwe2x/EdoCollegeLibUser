@@ -32,7 +32,8 @@ export const authenticateUser= async (loginPath)=>{
 export const createUser= async(user)=>{
 
     try {
-      return await signupApi.post("/",{user})
+     
+      return await signupApi.post("/adduser",user)
     } catch (error) {
         throw error;
     }

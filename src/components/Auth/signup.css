@@ -47,16 +47,14 @@
    cursor: pointer;
  }
 
-.login-container {
+.signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #ffffff;
-  /* background-image: url('	https://library-virid-three.vercel.app/_next/static/media/student-reading-in-library.3896a5d6.jpeg');
-  background-repeat: contain;
-  background-position: center top; */
-}
+  margin: 140px 0 120px;
+  }
 
 .login-card {
   background-color: #17172ca1; /* Background color of the card */
@@ -130,4 +128,20 @@
 
 .login-card .signup-link a:hover {
   color: #FF9900;
+}
+
+/***  media queries ***/
+@media screen and (min-width:750px) {
+
+  .signup-container {
+    margin-top: 160px;
+  }
+
+}
+@media screen and (min-width:1050px) {
+
+  .signup-container {
+    margin: 190px 0 50px;
+  }
+
 }

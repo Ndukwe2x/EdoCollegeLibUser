@@ -4,8 +4,8 @@ import axios from 'axios';
 const serverBaseUrl = 'https://edocollegelibraryapp-b13a4881c9f9.herokuapp.com/api/v1/student';
 const authUrl = 'https://edocollegelibraryapp-b13a4881c9f9.herokuapp.com/api/v1';
 const loginUrl = 'https://edocollegelibraryapp-b13a4881c9f9.herokuapp.com/api/v1/login/student';
-const registerUrl = 'https://edocollegelibraryapp-b13a4881c9f9.herokuapp.com/api/v1/adduser';
-// const baseUrl = 'http://localhost:3000/api/v1';
+const registerUrl = 'https://edocollegelibraryapp-b13a4881c9f9.herokuapp.com/api/v1';
+//const baseUrl = 'http://localhost:3000/api/v1';
 
 const api = axios.create({
   baseURL: serverBaseUrl,

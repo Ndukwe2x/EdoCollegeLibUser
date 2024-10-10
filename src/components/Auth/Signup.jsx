@@ -9,29 +9,36 @@ import { useAuth } from '../../auth/AuthContext';
 import logo from '../../assets/edocollegelogo.png';
 import TopBar from '../TopBar/TopBar';
 import Footer from '../Footer/Footer';
+import PromptModal from '../ModalDialogs/PromptModal';
 
 const Signup = () => {
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [signupError, setSignupError] = useState(false);
   const { signUp } = useAuth(); // get global Auth context for setting user credentials
   const navigate = useNavigate();
+  const [promptBody,setPromptBody]=useState("");
+  const [promptHeader,setPromptHeader]=useState("");
+  const [promptMode,setPromptMode]=useState("");
+  const [showModal,setShowModal]=useState(false);
+  const [signupSuccess,setSignUpSuccess]=useState(false); 
+  const [signUpId,setSignupId]=useState("");
 
   const tooltipStyle = { backgroundColor: '#20134488' };
 
-  
-
+ 
   const signupSubmit = async (values) => {
-
-    
-  
+ 
     setSubmitStatus("submitting");   
       try {
            
-        const response = await signUp(values);
-  
+       
+        const response = await createUser(values);
         if (response.data.status === "success") {
-          navigate('/dashboard');  // Redirect on successful login
-          values.username = ''; values.token = ''; //clear form after submit
+          setSignupId(values.studentID);
+          //clear form after submit
+          values.firstName= ''; values.lastName= ''; values.studentID= '';
+          values.entryYear= ''; values.classOfAdmission= ''; values.studentID=''; 
+          setSignUpSuccess(true);          
         }      
            
       } 
@@ -47,21 +54,29 @@ const Signup = () => {
         
       }
       finally {
-         setSubmitStatus("idle");
+         setSubmitStatus("idle");   
+           
       }
   
     }
-
+  useEffect(()=>{
+    if(signupSuccess){
+      setPromptHeader("Successful SignUp!");
+      setPromptBody(` Student user created successfully. Student Id: "${signUpId}".
+      Please take note of your student Id for subsequent login access. Contact Admin for login token.`);
+      setPromptMode("info");
+      setShowModal(true);
+      //navigate('/login');  
+    }
+  },[signupSuccess])
   return (
-    <div style={{paddingTop:100}}>
-
-      <TopBar />
-    <div className="login-container">
+    <div>
+    <TopBar showSideMenu={false} showAvatar={false}/>
+    <div className="signup-container">
       <div className="login-card">
         <img src={logo} alt="Logo" />
         <div className='formSignup center'>
-        <div style={{padding: 20}}>
-
+        <div style={{padding:10}}>
         <h4>Student Sign Up</h4>
         </div>
           <Formik
@@ -81,14 +96,9 @@ const Signup = () => {
             })}
             onSubmit={signupSubmit}
           >
-            {formik => (
-              <form onSubmit={formik.handleSubmit} className="signup-grid">
-                {signupError && <p className='errTxt'>Sign-up failed. Please check your details.</p>}
-
-                <div className="form-grid" style={{ justifyContent: 'space-between', gap: 20}}>
-
+            {formik => (<form onSubmit={formik.handleSubmit} >
+                {signupError && <p className='errTxt'>Sign-up failed. Please check your details.</p>}                              
                 
-                <div className="form-group">
                   {/* <label htmlFor='firstName'>First Name</label> */}
                   <input
                     className='form-control'
@@ -97,13 +107,12 @@ const Signup = () => {
                     maxLength={60}
                     disabled={submitStatus === "submitting"}
                     type='text'
-                    placeholder='Enter your first name'
+                    placeholder='First name'
                     {...formik.getFieldProps('firstName')}
                     />
                   {formik.touched.firstName && formik.errors.firstName ? (<p className='errTxt'>{formik.errors.firstName}</p>) : null}
-                </div>
-
-                <div className="form-group">
+                
+                
                   {/* <label htmlFor='lastName'>Last Name</label> */}
                   <input
                     className='form-control'
@@ -112,14 +121,11 @@ const Signup = () => {
                     maxLength={60}
                     disabled={submitStatus === "submitting"}
                     type='text'
-                    placeholder='Enter your last name'
+                    placeholder='Last name'
                     {...formik.getFieldProps('lastName')}
                   />
                   {formik.touched.lastName && formik.errors.lastName ? (<p className='errTxt'>{formik.errors.lastName}</p>) : null}
-                </div>
-                </div>
-                <div className="form-grid" style={{ justifyContent: 'space-between', gap: 20}}>
-                <div className="form-group">
+                                                
                   {/* <label htmlFor='studentID'>Student ID</label> */}
                   <input
                     className='form-control'
@@ -128,13 +134,11 @@ const Signup = () => {
                     maxLength={60}
                     disabled={submitStatus === "submitting"}
                     type='text'
-                    placeholder='Enter your student ID'
+                    placeholder='Student ID'
                     {...formik.getFieldProps('studentID')}
                     />
                   {formik.touched.studentID && formik.errors.studentID ? (<p className='errTxt'>{formik.errors.studentID}</p>) : null}
-                </div>
-
-                <div className="form-group">
+           
                   {/* <label htmlFor='entryYear'>Entry Year</label> */}
                   <input
                     className='form-control'
@@ -143,14 +147,12 @@ const Signup = () => {
                     maxLength={4}
                     disabled={submitStatus === "submitting"}
                     type='number'
-                    placeholder='Enter your entry year'
+                    placeholder='Entry year'
                     {...formik.getFieldProps('entryYear')}
                     />
                   {formik.touched.entryYear && formik.errors.entryYear ? (<p className='errTxt'>{formik.errors.entryYear}</p>) : null}
-                </div>
-                </div>
-                <div className="form-grid" style={{ justifyContent: 'space-between', gap: 20}}>
-                <div className="form-group">
+                
+                
                   {/* <label htmlFor='classOfAdmission'>Class of Admission</label> */}
                   <input
                     className='form-control'
@@ -159,12 +161,11 @@ const Signup = () => {
                     maxLength={60}
                     disabled={submitStatus === "submitting"}
                     type='text'
-                    placeholder='Enter your class of admission'
+                    placeholder='Admission class'
                     {...formik.getFieldProps('classOfAdmission')}
                     />
                   {formik.touched.classOfAdmission && formik.errors.classOfAdmission ? (<p className='errTxt'>{formik.errors.classOfAdmission}</p>) : null}
-                </div>
-                </div>
+                             
                 <div className="form-group full-width">
                   <button
                     type='submit'
@@ -185,9 +186,11 @@ const Signup = () => {
           <p data-tooltip-id="tooltipresetpassword"><Link  to="/login" style={{color: "white"}}>Already have an account? Login</Link></p>
           <Tooltip id="tooltipresetpassword" style={tooltipStyle} place="bottom" content="login to your account" />
         </div>
+        <PromptModal onHide={()=>setShowModal(false)} headerText={promptHeader}
+            show={showModal} bodyText={promptBody} mode={promptMode} />
       </div>
     </div>
-      <Footer />
+  <Footer />
   </div>
   );
 };
