@@ -5,14 +5,8 @@ import { Card, Nav } from 'react-bootstrap';
 import DashboardSharedLayout from '../pagelayout/DashboardSharedLayout';
 import RightSidebar from '../components/RightSidebar/RightSidebar';
 import { fetchSelectedBook } from '../redux/catalogueSlice';
-import { Viewer } from '@react-pdf-viewer/core';
 
-// Plugins
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-import { Worker } from '@react-pdf-viewer/core';
 // Import styles
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 import "@cyntler/react-doc-viewer/dist/index.css";
@@ -30,7 +24,7 @@ const override = {
 export default function ReadBook() {
   const { id } = useParams(); // Get the book id from the URL params
   const dispatch = useDispatch();
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  
   
   const { selectedBook, loading, error } = useSelector((state) => state.catalogue);
 
@@ -45,13 +39,16 @@ export default function ReadBook() {
     fileName: selectedBook?selectedBook?.title:"",
    fileType:documentType  }, // selectedBook.bookUrl Remote file
   ];
-  console.log("document type:", documentType);
+  
   // Fetch the selected book based on the id from the URL
   useEffect(() => {
     dispatch(fetchSelectedBook(id));
   }, [dispatch, id]);
-  useEffect(()=>{},[id]);
+
+  
+
   if (loading) return(
+    <>
     <p>
     <ClipLoader
          color="blue"
@@ -61,8 +58,10 @@ export default function ReadBook() {
          aria-label="Loading Spinner"
          data-testid="loader"
        />
- 
-   </p>);
+     
+   </p>
+   <h4>Please wait, Loading book file...</h4>
+   </>);
 
   if (error) {
     return <p>Error loading book: {error}</p>;
@@ -80,7 +79,7 @@ export default function ReadBook() {
         {/*   <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
                  <Viewer  fileUrl={selectedBook.bookUrl}   plugins={[ defaultLayoutPluginInstance,  ]}   />
           </Worker> */}
-          <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} />
+          <DocViewer prefetchMethod="GET" documents={docs} pluginRenderers={DocViewerRenderers} />
           <Card.Body>
             <Card.Text>{selectedBook.title}</Card.Text>
           </Card.Body>
