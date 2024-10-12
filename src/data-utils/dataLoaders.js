@@ -6,7 +6,7 @@ export const catalogueDataLoader=async()=>{
   const  authHeader={headers:{"Content-Type": "application/json",
           "Authorization":`Bearer ${loggedInCred.token}`}};
       try{
-          const response= await api.get("admin/catalogue",authHeader);
+          const response= await api.get("/catalogue",authHeader);
          return response;          
        }
        catch(err){

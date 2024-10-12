@@ -13,6 +13,10 @@ import { Worker } from '@react-pdf-viewer/core';
 // Import styles
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import "@cyntler/react-doc-viewer/dist/index.css";
+
 import ClipLoader from 'react-spinners/ClipLoader';
 
 const override = {
@@ -30,11 +34,23 @@ export default function ReadBook() {
   
   const { selectedBook, loading, error } = useSelector((state) => state.catalogue);
 
+  let documentType="";
+  if(selectedBook){
+   documentType=selectedBook?selectedBook?.docType:"";
+   documentType= documentType.split("/")[1].trim();  
+  }
+  
+  const docs = [
+    { uri:selectedBook?selectedBook?.bookUrl: "",
+    fileName: selectedBook?selectedBook?.title:"",
+   fileType:documentType  }, // selectedBook.bookUrl Remote file
+  ];
+  console.log("document type:", documentType);
   // Fetch the selected book based on the id from the URL
   useEffect(() => {
     dispatch(fetchSelectedBook(id));
   }, [dispatch, id]);
-
+  useEffect(()=>{},[id]);
   if (loading) return(
     <p>
     <ClipLoader
@@ -61,17 +77,10 @@ export default function ReadBook() {
       <div className="page-content" style={{ marginLeft: 30, width: '80%' }}>
         <Card style={{ width: '100%' }}>
           <Card.Img variant="top" src={selectedBook.coverUrl} height="300px" width="50%" />
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
-          
-                <Viewer
-          fileUrl={selectedBook.bookUrl}
-          plugins={[
-              
-              defaultLayoutPluginInstance,
-
-          ]}
-      />
-          </Worker>
+        {/*   <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
+                 <Viewer  fileUrl={selectedBook.bookUrl}   plugins={[ defaultLayoutPluginInstance,  ]}   />
+          </Worker> */}
+          <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} />
           <Card.Body>
             <Card.Text>{selectedBook.title}</Card.Text>
           </Card.Body>

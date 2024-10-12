@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './LibraryCatalogue.css';
 import { useSelector } from 'react-redux';
 import { combineResources } from '../../utils/combineResources';
+import { catalogueDataLoader } from '../../data-utils/dataLoaders';
 
 // Combine books and videos with a 'type' property to differentiate them
  
@@ -14,17 +15,28 @@ const LibraryCatalogue = () => {
 
   // Combine books and videos into one catalogue
   const catalogueData = combineResources(books, videos); 
-  
+  const[catalogueList,setCatalougeList] = useState(null);
   // Pagination state
   const ITEMS_PER_PAGE = 20;
   const [activeItem, setActiveItem] = useState(null); // Track active item
   const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE); // Items to show initially
 
+
+  useEffect(()=>{
+    async function loadCatalogue() {
+       
+       const {data:{data:{catalogue:catalougeEntries}}}= await catalogueDataLoader();
+       console.log(catalougeEntries);
+       setCatalougeList(catalougeEntries);
+    }
+    loadCatalogue();
+  },[]);
+
   // Toggle the active item in the catalogue
   const toggleItem = (id) => {
     setActiveItem(activeItem === id ? null : id);
   };
-
+ 
   // Load more items when user clicks "Load More"
   const loadMoreItems = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + ITEMS_PER_PAGE);
@@ -32,13 +44,15 @@ const LibraryCatalogue = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-
+   
+ 
   return (
     <div className="catalogue-sidebar">
       <h4>Library Catalogue</h4>
       <div className="sidebar-nav">
         {/* Show only visible items */}
-        {catalogueData.slice(0, visibleItems).map((item) => (
+       
+        {catalogueList && catalogueList.slice(0, visibleItems).map((item) => (
           <div className="nav-item" key={item._id}>
             <Link
               className="nav-link collapsed"
@@ -47,7 +61,7 @@ const LibraryCatalogue = () => {
             >
               <FontAwesomeIcon icon={faBook} />
               <span className="ms-3">{item.title}</span>
-              <FontAwesomeIcon icon={faChevronDown} className="ms-auto" />
+             {/*  <FontAwesomeIcon icon={faChevronDown} className="ms-auto" /> */}
             </Link>
 
             {/* Conditionally render the content if the item is active */}
