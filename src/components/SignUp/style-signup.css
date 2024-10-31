@@ -1,0 +1,33 @@
+.signupcontainer{
+    border:none;
+}
+.signup-hdr{
+    color:#fdfdfd;
+    font:bold 1.1em  Arial,"Arial Black", Times New Roman, sans-serif;
+    margin:10px auto 4px;
+    max-width: 89px;
+ }
+.frmsignup{
+  padding:0 10px 5px;
+  max-width: 350px;
+ }
+.frmsignup  input[type='text']{
+  height: 43px !important;
+  margin-top:15px;
+  margin-bottom:0;
+}
+.frmsignup label{
+  color:#f7fdfa;
+  font-weight: bold;
+}
+.frmsignup p{
+   margin-left: 6px; 
+}
+.submitBtn{
+    width:99%;
+    height:43px;
+    margin:25px auto 4px;
+    background-color: #1a2050 !important;
+    color:#f7fdfa !important;
+   /*  color:#343658 */
+}

@@ -79,460 +79,162 @@ margin: 0;
   }
 }
 /* ----------------------------- End of bootstrap overide  */
-.border-line{
-    border:1px solid #e21122;
-}
 .center{
-    margin:0 auto;
+  margin:0 auto;
 }
 .float_L{
-  float: left;
+float: left;
 }
 .float_R{
-  float: right;
+float: right;
 }
-
 .cf:before, .cf:after {content:" "; display:table;}
 .cf:after{clear: both;}
 a:hover{
-  text-decoration: none;
+text-decoration: none;
 }
 .errTxt{
-  color:#E80000;
-  margin:1px 0 3px;
-  width:90%;
-  font:normal 0.9em Verdana, Geneva, sans-serif;
+color:#be3232;/* #E80000; */
+margin:1px 0 3px;
+width:90%;
+font:normal 0.9em Verdana, Geneva, sans-serif;
 }
 .relative{
-  position: relative;
+position: relative;
 }
 .absolute{
-  position: absolute;
-}
-.section-login{
-    margin-top:130px;
-  }
-.bar-color{
-  background: #3c3c50;
+position: absolute;
 }
 .shadow{
   box-shadow:rgba(84, 124, 235, 0.34) 0 0 18px 2px; 
 }
-.sub-caption{
-  font-weight: normal;
-  
-}
-.loading{
-  color:#097a4f;
-  width:90%;
-  max-width: 230px;
-  font: normal 1.4em Arial, Helvetica, sans-serif;
-  margin:50px auto 10px;
- }
 .page-enclose{
   display:flex;
   flex-direction:column;
   justify-content: space-between; 
+  min-width: 350px;
   max-width: 2400px;
   min-height:100vh;
-}
-.text-input{
-  border-radius: 4px;  
-  height:32px;
-  border:1px groove #dee2e6;  
-  font:normal 1em  Verdana, Calibri, Arial, Times New Roman  sans-serif;  
-}
-.text-input:focus{
-  /* box-shadow:rgba(9, 151, 245, 0.34) 0 0 18px 2px; */
-  border:1px groove #0997f5 ;
-}
-.page-caption {
-  margin:13px auto 4px;
-  width:80%;
-  min-width:244px;
-  max-width:293px;
-  font:bold 1.2em "Arial Narrow";
-}
-/***  Admin landing ***/
-.dashboard-home{
-  display: flex;
 }
 #main{
   margin:98px auto;
   width:97%;
   min-width:337px;
-  border:1px solid #616161;
   padding: 3px;
   border-radius: 8px;
   min-height: 320px;
 }
-.counters-sctn{
-  margin:20px auto;
-  width:94%;
-  padding:5px 20px;
+/*Home page*/
+.homepg{
+  width: 100%;
+   /*  background: #fff url('./assets/libraryboy.jpg') no-repeat 0; */
 }
-
-.books-recent .header-title{
+.section-auth{
+  margin:145px auto 20px;
   width:95%;
-  max-width:280px;
-  font-size: 1.3em ;
-  margin:5px auto;
-  color:#1d1e63;
+  max-width:400px ; 
 }
+.mode-switch{
+ width:55%;
 
-/***  catalogue page***/
- .catalogue-pg h3{
-   width:80%;
-   min-width:200px;
-   max-width:240px;
-   font:bold 1.8em "Arial Narrow",Calibri,sans-serif;
-   margin:20px auto;    
- }
- 
- .catalogue-form{   
-  width:95%;
-  margin:10px 0 32px 10px;
-  box-shadow:rgba(84, 124, 235, 0.34) 0 0 18px 2px;
-  border-radius: 10px;
-  padding:20px 15px;
-  max-width: 473px !important;
-  max-height: 343px;
- }
-.loop-gif{
-   width:60px !important;
-   margin:0;
- }
- .spinner-position{
-   position:absolute;
-   left:32px;
-   top:25px;
-
- }
- .catalogue-form label{
-  margin-top:20px;
-  
- }
- .cat-tree-section{
-  max-width:460px;
- }
- .cat-tree-section h5{
-   margin:1px auto 2px;
-   width:90%;
-   max-width:293px;
-   font:bold 1.2em "Arial Narrow";
- }
-
- .catalogue-table{
-   max-width:400px;
-   margin:10px 0 20px 1px;
- }
- .catalogue-form .textarea{
-  height: 120px;
-  min-height: 100px;
-  max-height: 140px;
- }
- .catalogue-accordion{
-  padding:0;
- }
-/***  Token generator page ***/
- .token-gen-container{
-   width:100%;
- }
- .token-section h5{
-  font:bold 1.5em "Arial Narrow", Times New Roman, sans-serif;
-  height: 30px;
-  align-self:center;
- }
-
- .keyIcon{
-  margin-left:10px;
-  margin-top:0;
-  padding:0;
-  font-size:50px;
-  align-self:flex-start;
-  }
- .gen-panel{
-   min-width: 307px;
-   max-width: 550px;
-   border-radius: 14px;
-   padding:20px;
-   margin:10px auto;  
- }
- .gen-btn{
-  height: 43px !important;  
- }
- .btn-height{
-  height: 42px !important;
-   
- }
- .gen-text{
-  height:43px;
-  width:75%;
-  min-width: 189px;
-  max-width: 290px;
-  font-weight: bold;
-  color:#3568d6
- }
- .token-wrap{
-  display:flex;
- }
- .token-duration{
-  border: 1px solid #9c9c9c;
-  border-radius: 7px;
-  margin:45px auto 4px ;
-  padding:5px 25px ;
-  max-width: 400px;
-  position: relative;
-  display: flex;
-  
- }
- .token-duration label{
-  margin-left:3px;
- 
- }
- .token-duration legend{
-   font-size: 1.1em;
-   top:-14px; 
-   background-color: #ffffff; 
-   width:120px;  
- }
- .expiry-opts{
-  margin-top:25px;
-  max-width: 80px;
- }
- .expiry-opts .hdr{
-   margin-top:5px;
-   margin-bottom: 0px;
-   font-weight: bold;
- }
- .epxiry-value{
-  margin:70px 0 0 32px;
-  width:50%;
-  max-width:190px;
- }
- .btn-token-submit{
-  margin:30px auto 10px;
-  width:80%;
-   }
- .btn-token-submit button{
-  width:40%;
-  height:35px;
-  margin-left:20px;
- }
- .token-list{
-  width:95%;
-  min-width:250px;
-  margin-top:40px;
-  min-height: 200px;
- }
- .token-list h5{
-  margin:3px auto;
-  width:90%;
-  max-width: 180px;
-  min-width: 160px;
-  font:normal 1.3em Calibri,Arial,"Times New Roman",sans-serif;
- }
- /*** Add Books Page ***/
- .add-book-frm{
-    width:96%;
-    min-width:300px; 
-    max-width: 585px;
-    padding:10px 15px;
-    margin:10px auto 20px;
-    border-radius: 10px;
-    box-shadow:rgba(22, 135, 240, 0.534) 0 0 18px 2px;
- }
- .addbookHdr{
-   width:90%;
-   max-width:410px;
-   display:flex;
-   justify-content: center;
-   align-items: center;
-   margin:13px auto 5px;
- }
- .addbookHdr .iconSize{
-   font-size: 15px;   
- }
- .addbookHdr h4{
-    margin-left: 10px;
- }
- .add-book-frm label{
-  font-size:0.92em;
-  margin-top:18px;
-  margin-left:19px;
- }
- .add-book-frm p{
-  margin-left: 19px;
- }
- .add-book-frm input,select{
-   height: 38px ;
-   width:92% !important;
-   margin-left: auto !important;
-   margin-right: auto !important;
- }
- .add-book-frm input[type="checkbox"]{
-  height: auto;
-  margin:0 0 0 13px!important;
-  width: auto !important;
- }
- .add-book-frm .textarea{
-  height: 120px;
-  min-height: 100px;
-  width: 92%;
- }
- .add-book-frm .btn-sctn-addBk{
-   width:90%;
-  margin:20px auto 10px;
+ margin-top: 0;
 }
-.add-book-pg  .topNav{
-   display: flex;
-   justify-content: space-between;
-   margin:20px auto 10px ;
-   width:90%;
-}
-.topNav button{
-  width:100px;
-  color:#494a50;
-  background-color: #e2e2e2;
-}
-.topNav button:hover{
-  background-color:#305a75 ;
-  color:#fff;
-}
-.bookupload-success{
-  width:90%;
-  min-width:280px; 
-  max-width:300px;
-  color:#178057;  
-  margin:5px auto;
-}
-.add-book-pg .bottomNav{
-  display: flex;
-  width:90%;
-  margin: 5px auto 10px;
-  justify-content:end;
-}
-.top-indicator{
- margin-left:12px;
- color:#3568d6;
-}
-.bottomNav button{
-  font:bold 0.91em "Verdana", cambaria;
-  color: #28bb8a;
-}
-.bottomNav button:hover{
-   border: 1px solid #1d1e63 !important;
-}
- .add-book-frm .btnSubmit{
-    width:100%;
-    height:43px;
-    
- }
- .spanarea{
-   width:100%;
-   display:block;
- }
- .clearForm{
-    margin-left:60px;
-    display: inline-block;
-    margin-top:10px;
- }
- .clearForm a , .cancel-edit a{
+.mode-switch a{
   text-decoration: none;
- }
- .clearForm a:hover{
-  text-decoration: underline;
- }
- .cancel-edit{
-    margin-left: 39px;
- }
-  .inputControl{
-    border:1px groove #0997f5;
-    height: 39px;
-    width:80%;
-  }
-.prgrss-thumbs{
-   width:100%;
-  max-width:80px;
-  margin:4px auto 0;
+  color:#f6f9ff; 
+  margin-bottom:50px;
 }
-.thumbgen-text{
-  color:#178057;
-  max-width: 260px;
-  min-width:220px;
+/*Landing page*/
+.hdrcatlog{
+  width:60%;
+  max-width: 160px;
+  margin:0 auto 3px;
+  font:bold 1.1em Arial,"Arrow Narrow", "Times New Roman";
+  color:#4f4f50;
+
+}
+.landingpg{
+  padding-top:39px;
+}
+.searchmatches{
+   color:#175bc2;
+    width:85%;
+    max-width: 180px;
+    margin: 3px auto;
+    font-weight: bold;
+}
+.zerobooks{
+  margin:20% auto;
+  padding:15px 20px;
   width:95%;
-  margin:2px auto !important;
-  font:normal 1.1em Calibri;
-    
+  max-width:1600px;
 }
-.thumbnail-result{
-  width:98%;
-  max-width:220px;
-  min-width: 200px;
-  margin:10px auto;
-  border:solid 14px #cad8e2;
-  border-radius: 9px;
+.zerobooks h3{
+  font:bold 0.99em Arial, Helvetica;
+  color:#137777;
 }
-.videoThumbs-caption{
+.lnkviewcatlog{
+ text-decoration: none;
+ width:40px;
+ margin:1px 0 0 15px;
+ color:#575858;
+ font: normal 0.85em Verdana, cambria, sans-serif;
+}
+.lndngrght{
+  max-width: 320px;
+  width:95%; 
+  margin:0 auto; 
+}
+
+.lndnglft{
+  border:none;  
+}
+.lndnglft .stdyenclose {
+  width:89%;
+  padding:10px 10px;
+  box-shadow:rgba(84, 124, 235, 0.34) 0 0 18px 2px;
+  background-color:#f8f9fa;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  max-width: 330px;
+  margin: 40px auto;
+}
+.newadds {
+ margin: 0;
+}
+/*Not found page*/
+.notfoundpg{
+  min-width: 310px;
   width:95%;
-   color:#178057;
-   max-width: 180px;
-   margin:5px auto !important;
+  margin:120px auto ;
+  padding:10px 20px;
 }
-.prgrss-thumbs img{
-  width:100%;
+@media screen and (min-width:600px) {
+  
+  
 }
- /*** Error Fall back page Page */
-
-
-/***  404 not Found Page ***/
- .colorTests{
-  color:#f0d90e
- }
-
-/***  Footer ***/
-.footer-position{
- align-self: end;
- margin-top:50px;
-}
-.footer-txt-color{
-  color:#f7f7fd
-}
-
-/***  media queries ***/
- @media screen and (min-width:500px) {
-    .section-login{     
-        margin-top:120px;
-      }
-      .token-duration{
-        margin:45px auto 4px 12px ;
-      }
-      .btn-token-submit{
-        margin-left:30px;        
-       }
-       .add-book-frm label{
-        font-size:1em;
-        }
-        .addbookHdr .iconSize{
-          font-size:20px;   
-        }
- }
-
- @media screen and (min-width:750px) {
-    .section-login{
-        margin-top:140px;       
-      }
-      .add-book-frm label{
-        font-size:1.1em;        
-     }
-    .addbookHdr .iconSize{
-      font-size:30px;   
-    }
- }
-
- @media screen and (min-width:992px) {
-  .catalogue-pg h3{
-   margin-left: 150px; 
-       
+@media screen and (min-width:745px) {
+  .landingpg{
+    padding-top:68px
   }
+
+}
+@media screen and (min-width:980px) {
+  .lnkviewcatlog{
+    display: none;
+  }
+  .landingpg{
+    padding-top:88px
+  }
+  .lndngmain{
+    display:flex;
+    padding-top:20px;
+    justify-content: space-between;
+  }
+  .lndng-cntr{
+    padding-top:23px;
+  }
+.lndngrght{
+  margin: 0; 
+}
 }

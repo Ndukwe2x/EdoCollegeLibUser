@@ -1,0 +1,15 @@
+.authlayoutcntr{
+ border-radius: 10px;
+ padding:10px;
+ background: #7ea1aa;
+ min-width: 360px;
+}
+.logospot{
+  margin: 5px auto;
+  width:20%;
+  max-width: 60px;
+  min-width: 37px;
+}
+.logospot img{
+    width:100%;
+}

@@ -1,22 +1,18 @@
-/* eslint-disable no-useless-catch */
-import {redirect} from  'react-router-dom';
-import api, { authApi, loginApi, signupApi } from "../api/axiosConfig"
+import api from '../api/axiosConfig';
+import {redirect} from 'react-router-dom';
 
-
-export const authenticateUser= async (loginPath)=>{
-   
-    const loggedInCred= JSON.parse(localStorage.getItem("credentials"));  
+export const authenticateUser=async(loginPath)=>{
+    const loggedInCred= JSON.parse(localStorage.getItem("userCredentials"));  
   
     let loginStatus=undefined;
-
+      
     try{
       
-        loginStatus= await authApi.get("/loginAuth",
-        {headers:{"Content-Type": "application/json",
-        "Authorization":`Bearer ${loggedInCred.token}`}
+        loginStatus= await api.get("/loginAuth",
+          {headers:{"Content-Type": "application/json","Authorization":`Bearer ${loggedInCred.token}`}
        })
-       const {data:authResponse} = loginStatus; 
-            
+       const {data:authResponse}=loginStatus; 
+                 
        if(loginStatus.statusText!=="OK")       
           throw redirect(loginPath);
 
@@ -26,26 +22,24 @@ export const authenticateUser= async (loginPath)=>{
       throw redirect(loginPath);
     }
     
-   
-     
+
 }
-export const createUser= async(user)=>{
-
-    try {
-     
-      return await signupApi.post("/adduser",user)
-    } catch (error) {
-        throw error;
-    }
-}
-
-
-export const loginUser= async(studentId, token)=>{
-    try {
-      const response = await loginApi.post("/",{studentId, token})
+export const userLogin=async({studentId,token})=>{
+   try {
+      const response= await api.post('/login/student',{studentId,token});
       return response;
+   } catch (err) {
+    throw err;
+   }
+
+}
+
+export async function createLibraryUser({firstName,lastName,studentID,entryYear,classOfAdmission}){
+    
+    try {
+        const response= await api.post('/adduser',{firstName,lastName,studentID,entryYear,classOfAdmission});
+        return response;
     } catch (error) {
-      console.log("Failed to login", error);
         throw error;
     }
 }

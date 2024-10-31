@@ -1,0 +1,42 @@
+.visualcntr{
+    padding:10px 10px 0;
+    border: 1px solid #1f91dd;;
+    border-radius: 8px;
+    margin:4px auto 6px;
+    width:95%;
+    display:flex;
+}
+
+.vid-thumbs{
+  width:40%; 
+  margin-bottom: 4px; 
+  }
+.thumbborder img{
+  width:100%;
+}
+.playlink{
+    margin-left:50;
+}
+.thumbborder{ 
+  padding:5px; 
+  background-color: #a8a4b9; 
+  height:fit-content;
+}
+.vidinfo{
+    padding:0 10px 10px;
+}
+.vidtitle{
+ line-height: 1;
+ font-size:0.93em
+}
+.vidinfo p{
+ margin: 0 0 2px 0;
+ line-height: 1;
+}
+.vdcaption{
+ font:bold 0.8em Arial, "Arial Narrow", "Times New Roman";   
+}
+.vidinfovalue{
+  font:normal 0.8em Verdana, Cambria, sans-serif;  
+}
+

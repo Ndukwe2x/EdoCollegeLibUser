@@ -20,6 +20,9 @@
    text-shadow: rgba(235, 235, 240, 0.856) 3px 3px 3px
 
 }
+.bar-color{
+  background: #3c3c50;
+}
 #craftman{
     color:#4ab98b
 }
@@ -32,6 +35,14 @@ section p{
     font-family: "Open Sans", sans-serif;
     font-size: 12px;
 }
+.footer-position{
+  align-self: end;
+  margin-top:50px;
+ }
+ .footer-txt-color{
+   color:#f7f7fd
+ }
+ 
 @media screen and (min-width:750px) {
     .footer-display{
         flex-direction: row;

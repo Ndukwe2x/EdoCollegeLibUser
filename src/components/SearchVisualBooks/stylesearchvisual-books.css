@@ -1,0 +1,85 @@
+.viewercntr{
+    padding:10px 10px 10px;
+    border: 1px solid #1f91dd;
+    border-radius: 8px;
+    margin:4px auto 6px;
+    width:95%;
+    max-width:430px;
+    display:flex;
+   }
+  .coversctn{
+    width:30%;
+    max-width:92px;
+    padding: 0;
+  }
+  .coversctn img{
+    width:100%;
+  } 
+  
+  .btnsctn{
+    width:60%;
+  } 
+  .btnsctn button{
+    font: normal 0.7em Verdana !important;
+    background-color: #61499a;
+    color:#fdfdfd;
+ 
+  }
+  .minifo-readbtn{
+   padding:10px 5px;
+   margin-left:10px;
+  }
+.vidinfo{
+    padding:0 10px 10px;
+}
+.bktitle{
+ line-height: 1;
+ font-size:0.93em
+}
+
+.bkcaption{
+ font:bold 0.8em Arial, "Arial Narrow", "Times New Roman";   
+}
+.bkinfovalue{
+  font:normal 0.8em Verdana, Cambria, sans-serif;  
+}
+  .minifo-readbtn p{
+    margin: 0 0 2px 0;
+    line-height:1;
+  }
+   
+  @media screen and (min-width:708px) {
+    .viewercntr{
+      max-width: 550px;
+      margin-bottom: 15px;
+    }
+    .coversctn{
+      max-width: 120px;
+    }
+    .bkcaption{
+      font:bold 0.94em Arial, "Arial Narrow", "Times New Roman";   
+     }
+     .bkinfovalue{
+       font:normal 0.9em Verdana, Cambria, sans-serif;  
+     }
+     .bktitle{
+      line-height: 1.5;
+      font-size:0.98em
+     }
+     .btnsctn {
+       margin-top: 20px;
+     }
+     .btnsctn button{
+      font-size: 0.93em !important;   
+    }
+    .minifo-readbtn p{
+      margin: 0 0 10px 0;
+      line-height:1;
+    }
+
+  }
+
+  @media screen and (min-width:980px) {
+
+
+  }

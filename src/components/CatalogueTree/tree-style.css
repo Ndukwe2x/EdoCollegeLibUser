@@ -1,21 +1,37 @@
 
 .tree-container{
-    background-color:#fbfafc ;
-    border: 1px solid #cfc6c1;
-    border-radius: 5px;
+    border-radius:9px;
     min-height: 45px;
     max-width: 300px;
-    margin: 10px 0 10px 15px;
+    margin: 3px 0 10px 15px;
 }
 .tree-item{
-  padding:5px;
-  margin-left:8px;
-   
+  padding:10px 15px;
+  background-color:#7ea1aa;/* #e1e7eb */
+  color:#fff;
   }
+ .alt-row{
+   background-color: #fdfdfd;
+   color:#000;
+ }
+ .topstyle{
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+ }
+ .bttmstyle{
+   border-bottom-right-radius: 9px;
+   border-bottom-left-radius: 9px;
+ }
   .uncategorised{
     display:flex;
     width:100%;
     align-items: center;
+  }
+  .treelnk{
+    text-decoration:none;
+    color:inherit;
+    width:200px;
+    display:block;
   }
   .editmode{
     margin-left:auto;
@@ -25,13 +41,12 @@
   .singleItem{
     display: flex;
     align-items: center; 
-  }
+   }
  .pointer{
     cursor: pointer;
     width: 100%;
     display: flex;
-    align-items: center;
-      
+    align-items: center;      
  }
  .delete-catalogue{
    color:#f12805;
@@ -48,4 +63,5 @@
 .item-liner{
   margin:0;
   padding:0;
+ /*  color:#ffffff */
 }

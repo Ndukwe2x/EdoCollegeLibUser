@@ -1,0 +1,19 @@
+.login-hdr{
+    color:#fdfdfd;
+    font:bold 1.1em  Arial,"Arial Black", Times New Roman, sans-serif;
+    margin:10px auto 14px;
+    max-width: 119px;
+ }
+ .frmlogin{
+    padding:0 10px 5px;
+    max-width: 350px;
+   }
+  .frmlogin  input[type='text']{
+    height: 43px !important;
+    margin-bottom:3px;
+  }
+  .frmlogin label{
+    color:#f7fdfa;
+    font-weight: bold;
+    
+  }

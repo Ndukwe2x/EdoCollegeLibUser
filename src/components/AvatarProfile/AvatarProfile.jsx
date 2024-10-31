@@ -1,28 +1,41 @@
 
-import { useAuth } from "../../auth/AuthContext"; 
-// import { useNavigate } from "react-router-dom";
+//import { useAuth } from "../../auth/AuthContext"; 
+import { useNavigate} from "react-router-dom";
+import {useAvatar} from  '../../showAvatar/ShowAvatarContext';
+import {useAuth} from '../../auth/AuthContext';
 
 import './avatar-style.css';
 const profileImg = "";
 
-const AvatarProfile = () => {
-//   const {authenticatedUser} = useAuth()
-const{authenticatedUser, setAuthenticatedUser}=useAuth();  
-const{userName, userId}=authenticatedUser;
-//   const navigate= useNavigate();
+const AvatarProfile = () => {  
+  const navigate= useNavigate();
+  const {setShowAvatar}= useAvatar();
+  const {setAuthUser}=useAuth();
+
+  const loggedInCred= JSON.parse(localStorage.getItem("userCredentials"));
+  let user,userName=null;
+
+  if(loggedInCred){
+    user=loggedInCred.user;
+    userName=user.userName;
+  }
  
-   
-    const handleSignOut=(event=null)=>{
+ 
+ const handleSignOut=(event=null)=>{
      if(event!=null)
-         event.preventDefault();
-     localStorage.removeItem("credentials");
-     setAuthenticatedUser(null);
-   } 
+         event.preventDefault(); 
 
-
+     setAuthUser(null);    
+     setShowAvatar(false);
+     localStorage.removeItem("userCredentials");
+     navigate("/")//logout user;
+     
+   }
   
-    
-    return (
+   if(userName==null)
+       handleSignOut();    
+  
+   return (
        <div className="profile">
         <ul>
             <li className="nav-item dropdown pe-3">
@@ -30,16 +43,15 @@ const{userName, userId}=authenticatedUser;
                     href='#'
                     data-bs-toggle="dropdown">
                     {/* <img src={profileImg} alt='Profile' className="rounded-circle" /> */}
-                    <i className='bi bi bi-person-circle icon-color' style={{width: 50}}></i>
-                    <span style={{color: "white"}}>
+                    <i className='bi bi bi-person-circle icon-color'></i>
+                    <span className="d-none d-md-block dropdown-toggle ps-2">
                         {userName}
                     </span>
                 </a>
                 <ul className="dropdown-menu dropdown-menu-end drop-down-menu-arrow profile">
                     <li className='dropdown-header'>
                         <h6>{userName}</h6>
-                        <span>{`studentId ${userId}`}</span>
-                    </li>
+                     </li>
                     <li>
                         <hr className="dropdown-divider" />
                     </li>
@@ -67,7 +79,7 @@ const{userName, userId}=authenticatedUser;
                     
                     <li>
                        <a className="dropdown-item d-flex align-items-center"
-                        href="/login" onClick={handleSignOut}>
+                        href="/" onClick={handleSignOut}>
                             <i className="bi bi-box-arrow-right"></i>
                             <span className="ms-2"> Sign Out</span>
 

@@ -1,0 +1,20 @@
+
+.prevsviewcntr{
+    width:95%;
+    max-width: 300px;
+    min-height: 230px;
+    background-color: #ffffff;
+    box-shadow: rgba(139, 140, 204, 0.34) 0 0 10px 4px;
+    margin:49px auto 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
+}
+
+.compntHdr{
+    font:bold 0.97em  Arial,"Arial Narrow";
+    color:#493f6d;
+}
+.prevsviewcntr h3{
+    font-size: 1.4em;
+}

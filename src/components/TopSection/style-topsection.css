@@ -1,0 +1,47 @@
+.sectioncntr{
+width:100%;
+padding:10px 10px;
+min-width:350px;
+background-color: #e1e7eb;
+}
+.sectioncntr .topsctn{
+  justify-content: space-between;
+  display:flex;
+  align-items: center;
+}
+.ailink{
+  display: flex;
+  justify-content: end;
+}
+.ailink p{
+  margin: 0 6% 0 0;
+  font: normal 0.85em Verdana,Cambria, Geneva, sans-serif;
+ 
+}
+.chtlnk{
+  text-decoration: none;
+  color:#165844;
+}
+.searchbox{
+ padding:5px 0;
+ width:70%;
+ min-width: none;
+ margin:0 5px;
+}
+.homelnk{
+  font-size:28px;
+ }
+.homeicon{
+  color:#6566a0; /*  #4873ce */
+}
+.pstqa{
+  border: 1px solid #272630;
+  border-radius: 10px;
+}
+.search-btn{
+ background-color:#6566a0 !important;/* #4873ce */
+}
+.pstqa button{
+    font:normal 0.59em Verdana, cambria, "Times New Roman"; 
+    width:70px;
+   }

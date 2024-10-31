@@ -1,0 +1,41 @@
+.studyplancntr{
+    padding:10px;
+    margin:10px auto 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: rgba(139, 140, 204, 0.34) 0 0 10px 4px;
+    width:95%;
+    max-width: 300px;
+    min-height: 230px;
+    background-color: #ffffff;
+}
+.hdrstdypln{
+    font:bold 0.91em  Arial,"Arial Narrow";
+    color:#493f6d;
+
+}
+.studyplancntr p{
+    width:80%;
+    margin: 4px 0 0 1px;
+    font:normal 0.9em Verdana, Cambria, "Times New Roman";
+}
+.titlelist{
+    margin-bottom: 30px;
+    height:100px;
+    overflow: scroll;
+}
+
+.titlelist .bktitle, .delelipsis{
+    text-decoration: none;
+    color:#78797a;
+}
+.btnstdyplan{
+ width:93px;
+ background-color: #2e7494 !important;
+ font:normal 0.89em Cambria,Verdana !important;
+ color:#f4f4f5 !important;
+}
+.emptyplan h2{
+ font-size:1.1em;
+ margin-bottom:30px;
+}
