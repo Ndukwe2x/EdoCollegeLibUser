@@ -14,7 +14,7 @@ export default function BookCardMini({bookInfo,bookReadClick }){
           </div>
            <p className='booktitle' title={bookInfo.title}>{bookInfo.title}</p>
            <div className='btn-sctn' > 
-              <button className='btn btn-mini center' onClick={()=>bookReadClick(bookInfo.bookUrl)}>
+              <button className='btn btn-mini center' onClick={()=>bookReadClick(bookInfo)}>
                  Read
                </button>
                

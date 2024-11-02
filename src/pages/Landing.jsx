@@ -14,6 +14,9 @@ import useWindowSize from "../window-size/WindowSize";
 import PdfViewer from "../components/PdfViewer/PdfViewer";
 import AZTitleSelector from "../components/AzTitleSelector/AzTitleSelector";
 
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+import "@cyntler/react-doc-viewer/dist/index.css";
+
 
 export const loader = async () => {
 
@@ -40,8 +43,10 @@ const Landing=()=>{
     const windowSize=useWindowSize();  
     const [showBook, setBookShow]=useState(false)
     const [showMiniView,setMiniView]=useState(true);  
-    const [bookReadUrl,setBookReadUrl]=useState("");
-    const location =useLocation();   
+    const [bookDocs,setBookDocs]=useState(null);
+    const location =useLocation();
+    
+      
     
     useEffect(() => {
 
@@ -94,12 +99,18 @@ const Landing=()=>{
 
   }
 
-  const handleBookRead=(bookUrl)=>{
-     setShowSearch(false);
-     setMiniView(false);
-     setBookShow(true);
-     setBookReadUrl(bookUrl);
-     console.log("book url:",bookUrl)
+  const handleBookRead=(bookData)=>{
+    const docs = [
+      { uri:bookData.bookUrl,
+       fileName: bookData.title,
+       fileType:bookData.docType  }
+    ];
+
+      setShowSearch(false);
+      setMiniView(false);
+      setBookShow(true);
+      setBookDocs(docs);
+               
    }
   const hanldeHomeClick=()=>{
      setShowSearch(false);
@@ -164,13 +175,15 @@ const Landing=()=>{
                              <div className="viewswitch"></div>
                              {/* showSearch && <p className="searchmatches">{`${matches} matches` } </p> */}
                              <div className="visual">                             
-                              <SearchVisualViewer searchResource={searchedResources} loading={isPending}  />
+                              <SearchVisualViewer searchResource={searchedResources} 
+                              loading={isPending} bookReadClick={handleBookRead} />
                              </div>
                            </div>)
                         }
                         {showBook && ( 
                           <div className="pdfshow">
-                                <PdfViewer document={bookReadUrl} />
+                              <DocViewer prefetchMethod="GET" documents={bookDocs} 
+                              pluginRenderers={DocViewerRenderers} style={{ width:"100%"}} />
                          </div>)
                          }
 

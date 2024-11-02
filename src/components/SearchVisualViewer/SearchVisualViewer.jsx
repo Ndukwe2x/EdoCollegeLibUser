@@ -5,7 +5,7 @@ import looper from "../../assets/progressloop.gif";
 
 import './stylesearch-viewer.css';
 
-const SearchVisualViewer=({searchResource=[],loading})=>{
+const SearchVisualViewer=({searchResource=[],loading, bookReadClick})=>{
 
    const [pageLimit ,setPageLimit]=useState(10);
    const [pageIndex,setPageIndex]=useState(0); 
@@ -25,9 +25,9 @@ const SearchVisualViewer=({searchResource=[],loading})=>{
    return   searchResource.slice(start,end).map((resource)=>{
          const type= resource.type;                  
          if(type =="book")
-            return <SearchVisualBooks bookData={resource} key={resource._id}  />
+            return <SearchVisualBooks bookData={resource} key={resource._id} bookReadClick={bookReadClick}  />
          else
-           return <SearchVisualVideos videoData={resource} key={resource._id} />
+           return <SearchVisualVideos videoData={resource} key={resource._id}  />
           }
       )      
    }

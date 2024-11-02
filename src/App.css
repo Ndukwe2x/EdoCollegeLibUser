@@ -181,7 +181,8 @@ position: absolute;
  font: normal 0.85em Verdana, cambria, sans-serif;
 }
 .pdfshow{
-  max-height: 450px;
+  width:100%;
+  border:2px solid #221444;
 }
 .lndngrght{
   max-width: 320px;
@@ -191,6 +192,11 @@ position: absolute;
 .lndnglft{
   border:none;  
   display: flex;
+}
+.lndng-cntr{
+  width:94%;
+  padding:20px;
+  margin:0 auto;
 }
 .lndnglft .stdyenclose {
   width:89%;
@@ -209,6 +215,7 @@ position: absolute;
  .backreadcntr{
    margin-top:190px;
  }
+ 
 
  /* Video Watch */
  .vidviewpg{
@@ -284,7 +291,8 @@ position: absolute;
     max-width: 1700px;
   }
   .lndng-cntr{
-    padding-top:23px;
+    width:50%;
+    padding:23px 20px ;
   }
   .lndngrght{
     margin: 0; 

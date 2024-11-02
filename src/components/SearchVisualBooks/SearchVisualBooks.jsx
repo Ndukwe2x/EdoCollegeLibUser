@@ -2,7 +2,7 @@
 import { Tooltip } from 'react-tooltip';
 import './stylesearchvisual-books.css';
 
-const SearchVisualBooks=({bookData})=>{
+const SearchVisualBooks=({bookData, bookReadClick})=>{
     const random= Math.round( Math.random() * 1000);
     const tooltipId=`tooltipbookread${random}`
     const tooltipStyle={backgroundColor:'#343658'} ;
@@ -21,7 +21,8 @@ const SearchVisualBooks=({bookData})=>{
                     </span>
                   </p>
                   <div className='btnsctn'>
-                    <button data-tooltip-id={tooltipId} className='btn btn-secondary'>Read</button>
+                    <button data-tooltip-id={tooltipId} className='btn btn-secondary'
+                     onClick={()=>bookReadClick(bookData)}>Read</button>
                   </div>
               </div>
               <Tooltip id={tooltipId}  style={tooltipStyle}  content={`Read ${bookData.title}`} place='bottom' />
