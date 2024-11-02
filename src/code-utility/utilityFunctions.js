@@ -13,9 +13,9 @@ export function UTCDateToDateTimeString(UTCDate){
    return `${day}/${month}/${year}, ${hours}:${minutes} ${meridian}`;
   }
 
-  export function showAvatar(){
+  export function displayAvatar(){
     const loggedInCred= JSON.parse(localStorage.getItem("userCredentials"));
-    if(loggedInCred){
+    if(loggedInCred?.user){
         if(loggedInCred.user.userName)
             return true;
     }

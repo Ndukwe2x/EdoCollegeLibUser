@@ -1,0 +1,31 @@
+
+.titleselectorcntr{
+  padding: 10px; 
+  display:none; 
+}
+.titleselectorcntr h5{
+ font:normal 0.84em "Arial Narrow", "Times New Roman";
+ margin:0 auto;
+ width:80%;
+}
+.btnalphatilte{
+  color:#ffffff !important;
+  background-color: #405775 !important;
+  font-size: 0.7em !important;
+   width:32px !important;
+}
+.btnenclose{
+width:40px;
+padding:2px;
+margin-bottom: 5px;
+}
+.hideshowalphabts{
+    cursor: pointer;
+    width:75%;
+    margin: 4px auto;
+}
+@media screen and (min-width:980px) {
+   .titleselectorcntr{
+    display: block;
+   } 
+}

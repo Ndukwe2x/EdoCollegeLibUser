@@ -1,6 +1,6 @@
 import { authenticateUser } from "../auth/authHandler";
 import { useState,Suspense, useEffect, useTransition} from "react";
-import {  useLoaderData,  defer, Await, Link} from "react-router-dom";
+import { useLoaderData,  defer, Await, Link,useLocation} from "react-router-dom";
 import { combinedAcademicResources, libraryResources } from "../data-utils/dataLoaders";
 import TopSection from "../components/TopSection/TopSection";
 import CatalogueTree from '../components/CatalogueTree/CatalogueTree';
@@ -11,6 +11,8 @@ import SearchVisualViewer from "../components/SearchVisualViewer/SearchVisualVie
 import StudyPlanManager from "../components/StudyPlanManager/StudyPlanManager";
 import PreviouslyViewed from "../components/PreviouslyViewed/PreviouslyViewed";
 import useWindowSize from "../window-size/WindowSize";
+import PdfViewer from "../components/PdfViewer/PdfViewer";
+import AZTitleSelector from "../components/AzTitleSelector/AzTitleSelector";
 
 
 export const loader = async () => {
@@ -35,7 +37,11 @@ const Landing=()=>{
     const [searchedResources,setSearchedResources]=useState([]);
     const [matches,setMatches]=useState(0);
     const [showSearch,setShowSearch]=useState(false)
-    const windowSize=useWindowSize();       
+    const windowSize=useWindowSize();  
+    const [showBook, setBookShow]=useState(false)
+    const [showMiniView,setMiniView]=useState(true);  
+    const [bookReadUrl,setBookReadUrl]=useState("");
+    const location =useLocation();   
     
     useEffect(() => {
 
@@ -56,11 +62,15 @@ const Landing=()=>{
       setSearchTerm(value); 
       if(value.length==0){
         setShowSearch(false);
+        setMiniView(true);
+        setBookShow(false);
         setSearchedResources(combinedResources);
         return;
       }
       else
-       setShowSearch(true);
+      setShowSearch(true);
+      setMiniView(false);
+      setBookShow(false);
       startTransition(()=>{
         return setSearchedResources(()=>{
          return combinedResources.filter(resource=>resource.title.toLocaleLowerCase()
@@ -71,14 +81,49 @@ const Landing=()=>{
           setMatches(searchedResources.length);
           
   } 
+  const handleCatalogueItemClick=(catlogId)=>{
+  
+     setShowSearch(true);
+     setMiniView(false);
+     setBookShow(false);
+      startTransition(()=>{
+        return setSearchedResources(()=>{
+          return combinedResources.filter(resource=>resource.catalogueRef==catlogId);
+        });
+      });  
 
+  }
+
+  const handleBookRead=(bookUrl)=>{
+     setShowSearch(false);
+     setMiniView(false);
+     setBookShow(true);
+     setBookReadUrl(bookUrl);
+     console.log("book url:",bookUrl)
+   }
+  const hanldeHomeClick=()=>{
+     setShowSearch(false);
+     setMiniView(true);
+     setBookShow(false);
+   }
     const toggleViewCatalogue=(event)=>{
        event.preventDefault();
        setShowCatalogue(prevValue=>!prevValue);
      }
+    const handleAlphaTitleClick=(alphabet)=>{
+      setShowSearch(true);
+      setMiniView(false);
+      setBookShow(false);
+      startTransition(()=>{
+        return setSearchedResources(()=>{
+          return combinedResources.filter(resource=>resource.title.startsWith(alphabet));
+        });
+      }); 
+      
+    }
    return(
    <div className="landingpg">
-       <TopSection  searchHandler={handleSearch} textOnSearchBox={searchTerm} />   
+       <TopSection  searchHandler={handleSearch} textOnSearchBox={searchTerm} homeIconClick={hanldeHomeClick} />   
            
       {  <Suspense fallback={<SectionLoader sectionName={"landing page"}/>}>
           <Await resolve={libraryResourcePromise.libraryData} >
@@ -103,28 +148,39 @@ const Landing=()=>{
                         { (showCatalogue || windowSize.width >=980) &&
                        ( <> 
                           <h2 className="hdrcatlog">Library Catalogue</h2>
-                         <CatalogueTree  data={catalogue} pageLimit={windowSize.width < 981 ? 7:15} />
+                         <CatalogueTree  data={catalogue} pageLimit={windowSize.width < 981 ? 7:15}
+                          itemClick={handleCatalogueItemClick} />
                          </>
                          )} 
                       </div> 
                       <div className="lndng-cntr">
                         <div className="newadds">
-                         { !showSearch &&  <MiniCardViewer resourceCollection={books} />}
-                         { !showSearch &&   <MiniCardViewer resourceCollection={videos} />}
+                         {  showMiniView  &&  <MiniCardViewer resourceCollection={books} 
+                                                bookReadClick={handleBookRead}   />}
+                         { showMiniView  &&  <MiniCardViewer resourceCollection={videos}  />}
                         </div>
-                        <div className="searchResults">
+                        {
+                          showSearch &&  (<div className="searchResults">
                              <div className="viewswitch"></div>
                              {/* showSearch && <p className="searchmatches">{`${matches} matches` } </p> */}
                              <div className="visual">                             
-                             {showSearch && <SearchVisualViewer searchResource={searchedResources} loading={isPending}  />}
+                              <SearchVisualViewer searchResource={searchedResources} loading={isPending}  />
                              </div>
-                        </div>
+                           </div>)
+                        }
+                        {showBook && ( 
+                          <div className="pdfshow">
+                                <PdfViewer document={bookReadUrl} />
+                         </div>)
+                         }
+
                       </div>
-                     <div className="lndnglft ">
-                         <div className="stdyenclose ">
-                           <StudyPlanManager />
-                           <PreviouslyViewed />
+                     <div className="lndnglft">
+                         <div className="stdyenclose ">                         
+                            <StudyPlanManager />
+                             <PreviouslyViewed />                             
                          </div>
+                         <AZTitleSelector selectorClick={handleAlphaTitleClick} />
                       </div>
                    </div>
                    )

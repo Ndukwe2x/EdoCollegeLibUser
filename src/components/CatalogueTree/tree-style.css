@@ -51,8 +51,7 @@
  .delete-catalogue{
    color:#f12805;
    margin-left: auto;
-   cursor: pointer;
-  
+   cursor: pointer;  
  }
 .show-item{
  display:block;
@@ -64,4 +63,19 @@
   margin:0;
   padding:0;
  /*  color:#ffffff */
+}
+.loadmore-section{
+  width:50%;
+  margin: 2px auto;
+}
+.btnloadmore{
+  background-color: #137cdf !important;
+  color:#fdfdfd !important;
+  font-size: 0.7em !important;
+}
+
+@media  screen and (min-width:720px) {
+  .btnloadmore{    
+    font-size: 0.95em !important;
+  }
 }

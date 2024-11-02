@@ -40,3 +40,32 @@
   font:normal 0.8em Verdana, Cambria, sans-serif;  
 }
 
+@media screen and (min-width:708px) {
+  
+  .visualcntr{
+    max-width: 550px;
+    margin-bottom: 15px;
+  }
+  .vidinfo  p{
+    margin: 0 0 20px 0;
+    line-height:1;
+  }
+  .vdcaption{
+    font:bold 0.94em Arial, "Arial Narrow", "Times New Roman";   
+   }
+   .vidinfovalue{
+     font:normal 0.9em Verdana, Cambria, sans-serif;  
+  }
+  .vidtitle{
+    line-height: 1.2;
+    font-size:0.99em
+   }
+}
+
+@media screen and (min-width:1240px) {
+  
+  .visualcntr{
+    max-width: 600px;
+    min-width: 600px;
+  }
+}

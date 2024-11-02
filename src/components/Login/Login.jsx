@@ -47,9 +47,10 @@ const Login=()=>{
                     setShowAvatar(true); //show avatar on top bar
 
                     localStorage.setItem("userCredentials",JSON.stringify(loginResponse.data));
+                    formikvalues.token=''; formikvalues.studentId='';//clear form after submit
                     navigate('landing')
                    
-                    formikvalues.token=''; formikvalues.studentId='';//clear form after submit
+                   
                 }
             } catch (err) {
                 if (err.response && (err.response.status == 401 || err.response.status == 404))

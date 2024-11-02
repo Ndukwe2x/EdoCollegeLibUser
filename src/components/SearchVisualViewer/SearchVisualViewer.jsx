@@ -16,6 +16,8 @@ const SearchVisualViewer=({searchResource=[],loading})=>{
    }
       
    const displaySearch=()=>{
+      if(searchResource.length==0)
+         return <h3>Zero Books/Videos Matches</h3>
      
       const start=pageIndex * pageLimit;
       const end = start + (pageLimit);
@@ -59,7 +61,7 @@ const SearchVisualViewer=({searchResource=[],loading})=>{
           </div>
           <div className='pagersctn'>
             {
-               getPageCount() > 0 &&(
+               getPageCount() > 1 &&(
                   <>
                    <span className='page-counter'>{ `${pageIndex + 1}  of  ${getPageCount()}`}</span>
                    <button className="pager-btn" title='previous' onClick={()=>previousPage()}>{`< `}</button>

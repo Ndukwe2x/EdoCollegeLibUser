@@ -180,14 +180,17 @@ position: absolute;
  color:#575858;
  font: normal 0.85em Verdana, cambria, sans-serif;
 }
+.pdfshow{
+  max-height: 450px;
+}
 .lndngrght{
   max-width: 320px;
   width:95%; 
   margin:0 auto; 
 }
-
 .lndnglft{
   border:none;  
+  display: flex;
 }
 .lndnglft .stdyenclose {
   width:89%;
@@ -202,6 +205,53 @@ position: absolute;
 .newadds {
  margin: 0;
 }
+/* BookRead */
+ .backreadcntr{
+   margin-top:190px;
+ }
+
+ /* Video Watch */
+ .vidviewpg{
+  padding-top:39px;
+ }
+ .vidpglft{
+  padding:20px 10px;
+  max-width:320px;
+  margin:0 auto;
+ }
+ .videowatchmini{
+   width:90%;
+   min-width:100px;
+   max-width:210px;
+   padding:5px;
+   margin:2px auto 20px;
+  background-color: #a8a4b9 ;
+ }
+ .videowatchmini img{
+  width: 100%;
+ }
+ .vidpgcentr {
+  width:60%;
+  padding:20px;
+ }
+ .vidlnktitle{  
+  color:#2c2933;
+  text-decoration: none;
+ }
+ .ptitle{
+  max-width:160px;
+  margin: 2px auto; 
+  white-space:nowrap ; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  font:normal 0.9em Arial,"Times New Roman", Helvetica;
+ }
+ .vidwatchcntr{
+  padding:10px;
+  background-color: #6d7a91;
+  margin:10px auto;
+ }
+ 
 /*Not found page*/
 .notfoundpg{
   min-width: 310px;
@@ -214,8 +264,8 @@ position: absolute;
   
 }
 @media screen and (min-width:745px) {
-  .landingpg{
-    padding-top:68px
+  .landingpg, .vidviewpg{
+    padding-top:58px
   }
 
 }
@@ -223,18 +273,31 @@ position: absolute;
   .lnkviewcatlog{
     display: none;
   }
-  .landingpg{
-    padding-top:88px
+  .landingpg, .vidviewpg{
+    padding-top:80px
   }
   .lndngmain{
     display:flex;
     padding-top:20px;
     justify-content: space-between;
+    margin:0 auto;
+    max-width: 1700px;
   }
   .lndng-cntr{
     padding-top:23px;
   }
-.lndngrght{
-  margin: 0; 
-}
+  .lndngrght{
+    margin: 0; 
+  }
+
+  .vidmain{
+    display: flex;
+    justify-content: space-between;
+  }
+  .vidpgcentr{
+    margin-top: 20px;
+  }
+  .vidwatchcntr{
+    margin:0 auto;
+    }
 }

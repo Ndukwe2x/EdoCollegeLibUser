@@ -15,8 +15,7 @@ background-color: #e1e7eb;
 }
 .ailink p{
   margin: 0 6% 0 0;
-  font: normal 0.85em Verdana,Cambria, Geneva, sans-serif;
- 
+  font: normal 0.85em Verdana,Cambria, Geneva, sans-serif; 
 }
 .chtlnk{
   text-decoration: none;
@@ -30,6 +29,7 @@ background-color: #e1e7eb;
 }
 .homelnk{
   font-size:28px;
+  
  }
 .homeicon{
   color:#6566a0; /*  #4873ce */
@@ -45,3 +45,62 @@ background-color: #e1e7eb;
     font:normal 0.59em Verdana, cambria, "Times New Roman"; 
     width:70px;
    }
+
+  @media screen and (min-width:630px) {
+    .topsctn{
+     margin: 10px auto;
+     justify-content:space-around;
+    }
+    .homelnk{
+      margin-left:20px;      
+     }
+    .searchBox{
+      height:49px;
+    }
+    .search-btn{
+      width:75px !important;/* #4873ce */
+     }
+     .pstqa button{
+       width:80px;
+       height:37px !important;
+      }
+      .pstqa{
+        margin-right: 10px;
+      }
+  }
+  @media screen and (min-width:750px) {
+    .topsctn{
+       margin:27px auto 4px;      
+      }     
+     
+  }
+  @media screen and (min-width:845px) {
+    .topsctn{
+       max-width: 720px;
+       min-width: 720px;
+      }     
+     
+  }
+  @media screen and (min-width:980px) {
+    .ailink{
+      width:150px ; 
+      margin-top:10px ;
+      margin-right:6%;
+    }
+    .ailink p{
+      font-size:0.98em;
+    }
+   .sectioncntr{
+      display: flex;
+      align-items: center;
+    }
+    .topsctn{
+      margin:17px auto 4px;
+     }   
+  }
+  @media screen and (min-width:1150px) {
+    .topsctn{
+     min-width: 870px;
+     max-width: 870px;
+     } 
+  }

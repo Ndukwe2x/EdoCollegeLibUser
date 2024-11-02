@@ -7,7 +7,7 @@ import { Tooltip } from "react-tooltip";
 import './style-mincardviewer.css';
 import VideoCardMini from "../VideoCardMini/VideoCardMini";
 
-const MiniCardViewer=({resourceCollection})=>{
+const MiniCardViewer=({resourceCollection,bookReadClick})=>{
 
  resourceCollection.sort((a,b)=>{
   return  new Date(b.createdAt) - new Date(a.createdAt)
@@ -27,7 +27,7 @@ const MiniCardViewer=({resourceCollection})=>{
  const tooltipStyle={backgroundColor:'#343658'} ;
  return (
     <div className="content-cntr">
-        <h3 className="hdr">Latest Additions {resourceType=="video"?<FontAwesomeIcon icon={faFilm} /> :
+        <h3 className="hdr">New Additions! {resourceType=="video"?<FontAwesomeIcon icon={faFilm} /> :
          <FontAwesomeIcon icon={faBook}  />} </h3>
          <div className="miniitemwrap" >
             {
@@ -35,8 +35,8 @@ const MiniCardViewer=({resourceCollection})=>{
 
                     return (
                 <div className="card-item" key={libraryMaterial._id}>
-                        {resourceType=="book"? <BookCardMini bookInfo={libraryMaterial} />:
-                        <VideoCardMini videoinfo={libraryMaterial} />
+                        {resourceType=="book"? <BookCardMini bookInfo={libraryMaterial} bookReadClick={bookReadClick} />:
+                        <VideoCardMini videoinfo={libraryMaterial}  />
                         }
                     </div>   
                     )
