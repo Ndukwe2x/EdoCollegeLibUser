@@ -15,7 +15,7 @@ const VideoCardMini=({videoinfo})=>{
     
     useEffect(()=>{
      if(watchVideo){
-         navigate("../videoWatch",{state:{'vidUrl':videoinfo.videoUrl}});
+         navigate("../videoWatch",{state:{'vidUrl':videoinfo.videoUrl,"thumbNail":videoinfo.thumbnailUrl}});
        }
        setWatchVideo(false);
     },[watchVideo])

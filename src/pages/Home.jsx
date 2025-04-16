@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignUp from "../components/SignUp/SignUp";
-import {Link} from 'react-router-dom';
+import {Link,useOutletContext} from 'react-router-dom';
 import AuthSharedLayout from "../components/AuthSharedLayout/AuthSharedLayout";
 import Login from "../components/Login/Login";
 import {Tooltip} from 'react-tooltip'
@@ -9,6 +9,11 @@ import {Tooltip} from 'react-tooltip'
 const Home=()=>{
     const [authMode,setAuthMode]=useState('login');
     const tooltipStyle={backgroundColor:'#343658'} ;
+    const showBackDropFunction=useOutletContext();
+    
+    useEffect(()=>{
+      showBackDropFunction(true);
+    },[]);
       
     const toggleAuthMode=(event)=>{
       event.preventDefault();

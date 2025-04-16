@@ -1,0 +1,19 @@
+
+.listnghdr{
+    font:bold 1.1em Arial,"Times New Roman", Helvetica;
+    color:#1f2357
+}
+.listingcntnr{
+ padding:20px 15px;
+}
+.cardlayout{
+    margin: 0;
+}
+@media screen and (min-width:1200px){
+ .cardlayout{
+    display:flex;
+    flex-wrap: wrap; 
+           
+ }
+  
+}

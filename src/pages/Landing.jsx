@@ -1,6 +1,7 @@
 import { authenticateUser } from "../auth/authHandler";
+import { addToStudyPlan } from "../data-utils/server";
 import { useState,Suspense, useEffect, useTransition} from "react";
-import { useLoaderData,  defer, Await, Link,useLocation} from "react-router-dom";
+import { useLoaderData,  defer, Await, Link,useOutletContext} from "react-router-dom";
 import { combinedAcademicResources, libraryResources } from "../data-utils/dataLoaders";
 import TopSection from "../components/TopSection/TopSection";
 import CatalogueTree from '../components/CatalogueTree/CatalogueTree';
@@ -13,9 +14,11 @@ import PreviouslyViewed from "../components/PreviouslyViewed/PreviouslyViewed";
 import useWindowSize from "../window-size/WindowSize";
 import PdfViewer from "../components/PdfViewer/PdfViewer";
 import AZTitleSelector from "../components/AzTitleSelector/AzTitleSelector";
-
+import AddBookModal from "../components/ModalDialogs/AddBookModal";
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 import "@cyntler/react-doc-viewer/dist/index.css";
+
+
 
 
 export const loader = async () => {
@@ -34,33 +37,58 @@ const Landing=()=>{
     const[showCatalogue,setShowCatalogue]=useState(false);
     const [firstInstanceRender, setFirstInstanceRender] = useState(true);
     const [combinedResources,setCombinedResources]=useState(null);
-    const [libraryResources,setLibraryResources]=useState();
     const [searchTerm,setSearchTerm]=useState("");
     const [isPending,startTransition]=useTransition();
     const [searchedResources,setSearchedResources]=useState([]);
     const [matches,setMatches]=useState(0);
+    const [showModal,setShowModal]=useState(false);
     const [showSearch,setShowSearch]=useState(false)
     const windowSize=useWindowSize();  
     const [showBook, setBookShow]=useState(false)
     const [showMiniView,setMiniView]=useState(true);  
     const [bookDocs,setBookDocs]=useState(null);
-    const location =useLocation();
+    const [startStudyPlanUpdate,setStartStudyPlanUpdate]=useState(false);
+    const [selectedTitles,setSelectedTitles]=useState([])
+    const [refreshStudyPlans,setRefreshStudyPlan]=useState(false);
     
+    const showBackDropFunction=useOutletContext();
       
     
     useEffect(() => {
-
+      showBackDropFunction(false);
       if (firstInstanceRender) {
         combinedAcademicResources()
         .then(response=>{
           setCombinedResources(response.combined);
           setSearchedResources(response.combined);  
-          console.log(response);        
+              
         }).catch(err=>console.log(err) )
         .finally(()=>setFirstInstanceRender(false))
        } 
       
     }, []);
+
+  useEffect(()=>{
+    if(startStudyPlanUpdate){
+       const studyPlanUpdate= async()=>{
+        try{
+          const result=await addToStudyPlan(selectedTitles);
+          setSelectedTitles([]);
+          console.log("add status: ",result);  
+          setStartStudyPlanUpdate(false);        
+          setShowModal(false); //hide dialog box
+          setRefreshStudyPlan(refreshStatus=>!refreshStatus)
+          
+         } 
+         catch(addError){
+          console.log(addError);
+         }
+       }
+      studyPlanUpdate();
+  
+    }
+
+  },[startStudyPlanUpdate]);
 
   const handleSearch=(event)=>{
       const {value}=event.target;
@@ -98,7 +126,11 @@ const Landing=()=>{
       });  
 
   }
-
+  const addBooksToStudyPlan= async(selectedTitles)=>{     
+     setSelectedTitles(selectedTitles);
+     setStartStudyPlanUpdate(true);
+     
+  }
   const handleBookRead=(bookData)=>{
     const docs = [
       { uri:bookData.bookUrl,
@@ -136,7 +168,7 @@ const Landing=()=>{
    <div className="landingpg">
        <TopSection  searchHandler={handleSearch} textOnSearchBox={searchTerm} homeIconClick={hanldeHomeClick} />   
            
-      {  <Suspense fallback={<SectionLoader sectionName={"landing page"}/>}>
+      {  <Suspense fallback={<SectionLoader sectionName={"landing page"}/>} >
           <Await resolve={libraryResourcePromise.libraryData} >
            {
              (libraryResources)=> {
@@ -189,13 +221,15 @@ const Landing=()=>{
 
                       </div>
                      <div className="lndnglft">
-                         <div className="stdyenclose ">                         
-                            <StudyPlanManager />
+                         <div className="stdyenclose "> 
+                             <StudyPlanManager showTitleListing={setShowModal} updateList={refreshStudyPlans}   />                           
                              <PreviouslyViewed />                             
                          </div>
                          <AZTitleSelector selectorClick={handleAlphaTitleClick} />
                       </div>
-                   </div>
+                      <AddBookModal  show={showModal}  bookList={books}  onHide={()=>setShowModal(false)}
+                      submitHandler={addBooksToStudyPlan} />                    
+                    </div>
                    )
                    :
                      (
@@ -210,6 +244,7 @@ const Landing=()=>{
             }
          </Await>
        </Suspense>}
+       
    </div>);
 }
 export default Landing;

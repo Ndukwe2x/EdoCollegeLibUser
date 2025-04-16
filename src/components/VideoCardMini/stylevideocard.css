@@ -23,10 +23,7 @@
     margin:2px auto 2px ;    
  }
  @media screen and (min-width:600px) {
-  .card-cntr{
-    min-width: 250px;
-    width:250px;
-   }
+  
    .videotitle{
     font-size: 0.9em;
    }

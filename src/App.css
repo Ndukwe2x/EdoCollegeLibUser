@@ -115,6 +115,7 @@ position: absolute;
   min-width: 350px;
   max-width: 2400px;
   min-height:100vh;
+  
 }
 #main{
   margin:98px auto;
@@ -127,7 +128,10 @@ position: absolute;
 /*Home page*/
 .homepg{
   width: 100%;
-   /*  background: #fff url('./assets/libraryboy.jpg') no-repeat 0; */
+ }
+.homepg-backdrop{
+  background: #fff url('./assets/edolib_bg1220.jpg') no-repeat 0;
+  background-size:cover;
 }
 .section-auth{
   margin:145px auto 20px;
@@ -191,7 +195,7 @@ position: absolute;
 }
 .lndnglft{
   border:none;  
-  display: flex;
+  display:flex;
 }
 .lndng-cntr{
   width:94%;
@@ -199,13 +203,13 @@ position: absolute;
   margin:0 auto;
 }
 .lndnglft .stdyenclose {
-  width:89%;
+  width:80%;
   padding:10px 10px;
   box-shadow:rgba(84, 124, 235, 0.34) 0 0 18px 2px;
   background-color:#f8f9fa;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  max-width: 330px;
+  max-width: 330px; 
   margin: 40px auto;
 }
 .newadds {
@@ -238,7 +242,8 @@ position: absolute;
   width: 100%;
  }
  .vidpgcentr {
-  width:60%;
+  width:94%;
+  margin:2px auto;
   padding:20px;
  }
  .vidlnktitle{  
@@ -253,10 +258,27 @@ position: absolute;
   text-overflow: ellipsis; 
   font:normal 0.9em Arial,"Times New Roman", Helvetica;
  }
+ .rcnt-vids{
+  width:90%;
+  max-width:162px;
+  margin: 0 auto 10px;
+  font: normal 0.91em Arial, Helvetica, Calibri;
+ }
  .vidwatchcntr{
-  padding:10px;
+  padding:10px ;
   background-color: #6d7a91;
   margin:10px auto;
+  position:relative;
+  
+ }
+ .btnstcn-rcntvids{
+   width:80%;
+   max-width: 120px;
+   margin: 12px auto;
+  
+ }
+ .btn-rcntvidsmore{
+   font: normal 0.85em cambria,Verdana, Calibri, sans-serif !important;
  }
  
 /*Not found page*/
@@ -266,18 +288,34 @@ position: absolute;
   margin:120px auto ;
   padding:10px 20px;
 }
+/*Add book modal*/
+.titlefilter{
+  width:100%;
+  padding: 20px 10px;
+}
+.srchcntrl{
+  height: 40px;
+  width:60% !important;
+  min-width:150px;
+}
+.btn-modalsrch{
+  background-color: #3a246d !important;
+  color:#ffffff !important;
+}
 @media screen and (min-width:600px) {
-  
+  .vidpgcentr{
+   width:70%;   
+  }
   
 }
 @media screen and (min-width:745px) {
   .landingpg, .vidviewpg{
-    padding-top:58px
+    padding-top:58px;
   }
-
+  
 }
 @media screen and (min-width:980px) {
-  .lnkviewcatlog{
+  .lnkviewcatlog, .lnkvidzrcnt{
     display: none;
   }
   .landingpg, .vidviewpg{
@@ -286,24 +324,33 @@ position: absolute;
   .lndngmain{
     display:flex;
     padding-top:20px;
-    justify-content: space-between;
+    justify-content:space-between;
     margin:0 auto;
-    max-width: 1700px;
+    max-width:1700px;
   }
   .lndng-cntr{
-    width:50%;
-    padding:23px 20px ;
+    width:45%;
+    padding:23px 10px ;
   }
   .lndngrght{
-    margin: 0; 
+    margin: 0;  
   }
-
+  .lndnglft .stdyenclose{
+   margin-right:7px;
+   margin-left:10px;
+   padding:10px 5px;
+  }
+  .lndnglft{
+   margin:0;
+   width:29%;
+ 
+  }
   .vidmain{
     display: flex;
     justify-content: space-between;
   }
   .vidpgcentr{
-    margin-top: 20px;
+    margin-top: 20px;    
   }
   .vidwatchcntr{
     margin:0 auto;

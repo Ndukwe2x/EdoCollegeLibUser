@@ -13,6 +13,7 @@ const CatalogueTree = ({ data,pageLimit,itemClick}) => {
     
     const [pageNumber,setPageNumber]=useState(1);
     const [pageItems,setPageItems]=useState([]);
+    const [reloadTree,setReloadTree]=useState(false);
     
     const ITEMS_MORE_ADD_COUNT=5;
     const [itemsCount, setItemsCount]=useState(pageLimit); 
@@ -38,7 +39,10 @@ const CatalogueTree = ({ data,pageLimit,itemClick}) => {
          if(itemsCount < data.length)
             setItemsCount(prevCount=>prevCount + ITEMS_MORE_ADD_COUNT);
         else
-          setItemsCount(pageLimit);
+            setItemsCount(pageLimit);
+           
+        setReloadTree(true);
+            
 
      }
      const displayCatalouge=()=>{
@@ -61,36 +65,15 @@ const CatalogueTree = ({ data,pageLimit,itemClick}) => {
      }
       
     
-    useEffect(()=>{
+   /*  useEffect(()=>{
      handlePagingProcess();
-    },[pageNumber])
+    },[pageNumber]) */
    
-    function toggleShow(event){    
-     
-       const clickedNode= event.target;
-       const  clickedNodeName=event.target.nodeName;
-       let collaspableNode= null
-       switch(clickedNodeName){
-        case 'svg':
-               collaspableNode= clickedNode.parentElement;
-            break;
-        case 'path':
-              collaspableNode= clickedNode.parentElement.parentElement;
-            break;
-        case "SPAN":
-            if(clickedNode.className=="")
-                collaspableNode=clickedNode.parentElement;
-             else
-               collaspableNode= clickedNode;
-            break;
-       }
-       const targetElement=collaspableNode.nextElementSibling;
-
-       if(targetElement.classList.contains("hide-item"))
-            targetElement.classList.remove("hide-item")
-        else
-            targetElement.classList.add("hide-item")
-    }
+  useEffect(()=>{
+    if(!reloadTree)
+      setPageItems(data);
+  },[reloadTree]);
+  
     const setRowStyle=(index,length)=>{
        
        let itemClass="tree-item";

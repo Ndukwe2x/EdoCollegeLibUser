@@ -1,0 +1,35 @@
+.videocardcntnr{
+ padding:10px;
+ width:90%;
+ min-width: 200px;
+ max-width: 300px;  
+ cursor: pointer;
+ margin:0 auto;
+
+}
+
+.videocardcntnr img{
+    width:100%;
+    border-radius: 10px; 
+    border:solid 1px #88878af6
+}
+.video-title{
+   white-space: nowrap; 
+  text-overflow:ellipsis;
+   max-width: 250px;
+   overflow: hidden;
+  font:bold 1.1em "Arial Narrow",Verdana, cambria, "Times New Roman", "sans-serif";
+  color:#212125;
+  margin-top:10px;
+  cursor: pointer;
+}
+
+@media screen and (min-width:1200px){
+  .videocardcntnr{
+    margin:0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 1;
+      
+   }
+}

@@ -1,21 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BookCardMini from "../BookCardMini/BookCardMini";
+import VideoCardMini from "../VideoCardMini/VideoCardMini";
 import { faBook, faFilm } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 import './style-mincardviewer.css';
-import VideoCardMini from "../VideoCardMini/VideoCardMini";
+import useWindowSize from "../../window-size/WindowSize";
+
 
 const MiniCardViewer=({resourceCollection,bookReadClick})=>{
 
  resourceCollection.sort((a,b)=>{
   return  new Date(b.createdAt) - new Date(a.createdAt)
  })//sort collection by date;
- 
+ const viewPort = useWindowSize();
  const recentlyAdded= resourceCollection.slice(0,9);//cut out the first nine items
  const resourceType= recentlyAdded[0].hasOwnProperty("videoDescription") ?"video":"book";
- const ITEMS_PER_VIEW= resourceType=="video" ? 2: 3;
+
+ const ITEMS_PER_VIEW= resourceType=="video" ? (viewPort.width <610 ?2:(viewPort.width >=1170?3:2)):3;
  const [visibleCards,setVisibleCards]=useState(ITEMS_PER_VIEW); //number of items for initial display  
  
  const loadMore=()=>{

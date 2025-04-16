@@ -7,7 +7,7 @@ import './stylesearch-viewer.css';
 
 const SearchVisualViewer=({searchResource=[],loading, bookReadClick})=>{
 
-   const [pageLimit ,setPageLimit]=useState(10);
+   const [pageLimit ,setPageLimit]=useState(4)
    const [pageIndex,setPageIndex]=useState(0); 
 
       

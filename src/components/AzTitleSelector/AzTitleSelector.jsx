@@ -6,23 +6,24 @@ const AZTitleSelector=({selectorClick})=>{
    const ALPHABETS=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", 
     "S", "T", "U", "V", "W", "X", "Y", "Z"]; 
     const ALPHA_INITIAL_COUNT=14;
-    const TOTAL_ALPHABET_COUNT=26;
-    const [alphabtShowCount, setAlphaShowCount]=useState(ALPHA_INITIAL_COUNT); 
+    const [alphabtShowCount, setAlphaShowCount]=useState(ALPHA_INITIAL_COUNT);
+    const [startIndex,setStartIndex]=useState(0)
     const tooltipStyle={backgroundColor:'#343658'}; 
 
     const showMoreLess=()=>{
     
-       if(alphabtShowCount < 26)
-        setAlphaShowCount(prevCount=>prevCount + ALPHA_INITIAL_COUNT);
-       else
-         setAlphaShowCount(ALPHA_INITIAL_COUNT);
+      
+        if(startIndex==0)
+           setStartIndex(13);
+        else
+           setStartIndex(0)
     }
     return (
     <div className='titleselectorcntr'>
         <h5>A-Z</h5>
         <h5>Title</h5>
         {
-          ALPHABETS.slice(0,alphabtShowCount).map(alpha=>{
+          ALPHABETS.slice(startIndex,(alphabtShowCount + startIndex)).map(alpha=>{
           return <div className='btnenclose' key={alpha}>
              <button className='btn btnalphatilte' data-tooltip-id={`tooltipalpha-${alpha}`}
               onClick={()=>selectorClick(alpha)}>{alpha}</button>
@@ -32,12 +33,12 @@ const AZTitleSelector=({selectorClick})=>{
           })
         }
         <p data-tooltip-id='chvronmore' className='hideshowalphabts' onClick={showMoreLess}>
-            {alphabtShowCount < TOTAL_ALPHABET_COUNT ? 
-            <i className="bi bi-chevron-down" title='show more'></i>: 
-            <i  title="show less" className="bi bi-chevron-up"></i>}
+            { startIndex ==0? 
+            <i className="bi bi-chevron-down" title='move down'></i>: 
+            <i  title="move up" className="bi bi-chevron-up"></i>}
         </p>
         <Tooltip  style={tooltipStyle} id='chvronmore'
-         content={alphabtShowCount < TOTAL_ALPHABET_COUNT?"show more..":"show less"} />
+         content={startIndex ==0?"move down..":"move up"} />
     </div>);
 
 }

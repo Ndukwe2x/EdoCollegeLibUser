@@ -68,7 +68,7 @@ const Login=()=>{
                     setPromptMode("error");
                     setShowModal(true); 
                    }
-                   console.log(err);
+                  
                 
             }
             finally {

@@ -98,6 +98,18 @@ export const combinedAcademicResources=async()=>{
     throw error
   }
 }
+export const  studyPlanList=async()=>{
+  const loggedInCred= JSON.parse(localStorage.getItem("userCredentials"));
+  const {userId}=loggedInCred.user;
+  try{
+     const studentStudyPlan= await api.get(`student/studyplan/${userId}`);
+     
+     return studentStudyPlan;
+
+  }catch(error){
+    throw error
+  }
+}
   
   
  
